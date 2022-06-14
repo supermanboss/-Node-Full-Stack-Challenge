@@ -3,6 +3,8 @@
 ## Challenge
 This test focuses on building a simple full stack web application via Express (Backend) and Vuejs (Frontend).
 
+Feel free to use any existing UI component library you are familiar with in this project.
+
 ## Requirements
 Please find the symbols.json file in this repo. Download the symbols.json to your local computer as this will be your sample server data file.
 Write a simple web application that allows any user to get, add, update and delete symbol.
