@@ -89,8 +89,8 @@
 			<h2 style="width: 100%; text-align: center;">person management system</h2>
 			<div style="width: 100%; justify-content: center; display: flex;">
 				<div style="width: 70%;">
-					<button type="button" @click="openAdd">新增</button>
-					<input placeholder="请输入id查询" v-model="id" /><button type="button" @click="queryById">查询</button>
+					<button type="button" @click="openAdd">ADD</button>
+					<input placeholder="Please enter the id query" v-model="id" /><button type="button" @click="queryById">Search</button>
 				</div>
 			</div>
 			<div style="width: 100%; justify-content: center; display: flex;">
@@ -123,9 +123,9 @@
 							<td>{{item.contract_size}}</td>
 							<td>{{item.description}}</td>
 							<td>
-								<button type="button" @click="getById(item.id)">修改</button>
+								<button type="button" @click="getById(item.id)">Edit</button>
 								|
-								<button type="button" @click="doDelete(item.id)">删除</button>
+								<button type="button" @click="doDelete(item.id)">Delete</button>
 							</td>
 						</tr>
 					</tbody>
@@ -226,62 +226,62 @@
 						layer.open({
 							type: 1,
 							area: ['500px', '600px'],
-							content: $('#addDiv'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
-							btn: ['提交', '关闭'],
+							content: $('#addDiv'), //content是一个DOM，该元素要存放在body最外层，不然可能被其它的相对元素所影响
+							btn: ['Submit', 'Close'],
 							yes: function(index, layero) {
 								if ($('#addForm').find('input[name="id"]').val() == '') {
 									$('#addForm').find('input[name="id"]').focus()
-									alert('请输入id')
+									alert('Please enter id')
 									return
 								}
 								if ($('#addForm').find('input[name="server_id"]').val() == '') {
 									$('#addForm').find('input[name="server_id"]').focus()
-									alert('请输入server_id')
+									alert('Please enter server_id')
 									return
 								}
 								if ($('#addForm').find('input[name="name"]').val() == '') {
 									$('#addForm').find('input[name="name"]').focus()
-									alert('请输入name')
+									alert('Please enter name')
 									return
 								}
 								if ($('#addForm').find('input[name="currency"]').val() == '') {
 									$('#addForm').find('input[name="currency"]').focus()
-									alert('请输入currency')
+									alert('Please enter currency')
 									return
 								}
 								if ($('#addForm').find('input[name="type"]').val() == '') {
 									$('#addForm').find('input[name="type"]').focus()
-									alert('请输入type')
+									alert('Please enter type')
 									return
 								}
 								if ($('#addForm').find('input[name="digits"]').val() == '') {
 									$('#addForm').find('input[name="digits"]').focus()
-									alert('请输入digits')
+									alert('Please enter digits')
 									return
 								}
 								if ($('#addForm').find('input[name="trade"]').val() == '') {
 									$('#addForm').find('input[name="trade"]').focus()
-									alert('请输入trade')
+									alert('Please enter trade')
 									return
 								}
 								if ($('#addForm').find('input[name="swap_long"]').val() == '') {
 									$('#addForm').find('input[name="swap_long"]').focus()
-									alert('请输入swap_long')
+									alert('Please enter swap_long')
 									return
 								}
 								if ($('#addForm').find('input[name="swap_short"]').val() == '') {
 									$('#addForm').find('input[name="swap_short"]').focus()
-									alert('请输入swap_short')
+									alert('Please enter swap_short')
 									return
 								}
 								if ($('#addForm').find('input[name="contract_size"]').val() == '') {
 									$('#addForm').find('input[name="contract_size"]').focus()
-									alert('请输入contract_size')
+									alert('Please enter contract_size')
 									return
 								}
 								if ($('#addForm').find('input[name="description"]').val() == '') {
 									$('#addForm').find('input[name="description"]').focus()
-									alert('请输入description')
+									alert('Please enter description')
 									return
 								}
 								axios.get('http://localhost:3000/add?' + $('#addForm').serialize()).then(function(response) {
@@ -289,7 +289,7 @@
 									if(response.status != 200) {
 										alert(response.data)
 									} else {
-										alert('操作成功')
+										alert('Successful operation')
 										window.location.reload()
 									}
 								}).catch(function(error) {
@@ -303,8 +303,8 @@
 						});
 					},
 					doDelete(id) {
-						layer.confirm('是否确定删除？', {
-						  btn: ['确定', '取消'] //可以无限个按钮
+						layer.confirm('Are you sure you want to delete？', {
+						  btn: ['Yes', 'Cancel'] //可以无限个按钮
 						}, function(index, layero){
 						  axios.get('http://localhost:3000/delete?id=' + id).then(function(response) {
 						  	console.log(response.data);
@@ -312,7 +312,7 @@
 						  	if(response.status != 200) {
 						  		alert(response.data)
 						  	} else {
-						  		alert('操作成功')
+						  		alert('Successful operation')
 						  		window.location.reload()
 						  	}
 						  }).catch(function(error) {
@@ -331,62 +331,62 @@
 							layer.open({
 								type: 1,
 								area: ['500px', '600px'],
-								content: $('#addDiv'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
-								btn: ['提交', '关闭'],
+								content: $('#addDiv'), //这里content是一个DOM，最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+								btn: ['Submit', 'Close'],
 								yes: function(index, layero) {
 									if ($('#addForm').find('input[name="id"]').val() == '') {
 										$('#addForm').find('input[name="id"]').focus()
-										alert('请输入id')
+										alert('Please enter id')
 										return
 									}
 									if ($('#addForm').find('input[name="server_id"]').val() == '') {
 										$('#addForm').find('input[name="server_id"]').focus()
-										alert('请输入server_id')
+										alert('Please enter server_id')
 										return
 									}
 									if ($('#addForm').find('input[name="name"]').val() == '') {
 										$('#addForm').find('input[name="name"]').focus()
-										alert('请输入name')
+										alert('Please enter name')
 										return
 									}
 									if ($('#addForm').find('input[name="currency"]').val() == '') {
 										$('#addForm').find('input[name="currency"]').focus()
-										alert('请输入currency')
+										alert('Please enter currency')
 										return
 									}
 									if ($('#addForm').find('input[name="type"]').val() == '') {
 										$('#addForm').find('input[name="type"]').focus()
-										alert('请输入type')
+										alert('Please enter type')
 										return
 									}
 									if ($('#addForm').find('input[name="digits"]').val() == '') {
 										$('#addForm').find('input[name="digits"]').focus()
-										alert('请输入digits')
+										alert('Please enter digits')
 										return
 									}
 									if ($('#addForm').find('input[name="trade"]').val() == '') {
 										$('#addForm').find('input[name="trade"]').focus()
-										alert('请输入trade')
+										alert('Please enter trade')
 										return
 									}
 									if ($('#addForm').find('input[name="swap_long"]').val() == '') {
 										$('#addForm').find('input[name="swap_long"]').focus()
-										alert('请输入swap_long')
+										alert('Please enter swap_long')
 										return
 									}
 									if ($('#addForm').find('input[name="swap_short"]').val() == '') {
 										$('#addForm').find('input[name="swap_short"]').focus()
-										alert('请输入swap_short')
+										alert('Please enter swap_short')
 										return
 									}
 									if ($('#addForm').find('input[name="contract_size"]').val() == '') {
 										$('#addForm').find('input[name="contract_size"]').focus()
-										alert('请输入contract_size')
+										alert('Please enter contract_size')
 										return
 									}
 									if ($('#addForm').find('input[name="description"]').val() == '') {
 										$('#addForm').find('input[name="description"]').focus()
-										alert('请输入description')
+										alert('Please enter description')
 										return
 									}
 									axios.get('http://localhost:3000/update?' + $('#addForm').serialize()).then(function(response) {
@@ -394,7 +394,7 @@
 										if(response.status != 200) {
 											alert(response.data)
 										} else {
-											alert('操作成功')
+											alert('Successful operation')
 											window.location.reload()
 										}
 									}).catch(function(error) {
