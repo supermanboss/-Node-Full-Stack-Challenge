@@ -23,7 +23,7 @@ Symnbol data structure explain:
 | swap_long | The storage price for long order | float |
 | swap_short | The storage price for short order | float |
 | contract_size | Contract size is the deliverable quantity of commodities or financial instruments that underlie futures and options contracts traded on an exchange | int |
-| margin_currency | The currency used for profit calculation | float |
+| ~~margin_currency | The currency used for profit calculation | float~~ |
 
 Type
 2 => Full, 1 => Close Only, 0 = No
