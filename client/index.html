@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<script src="js/v2.6.10/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div v-html="htmlText"></div>
+		</div>
+		<script>
+			var app =  new Vue({
+				el: '#app',
+				data() {
+					return {
+						counter: 0,
+						htmlText: '111'
+					}
+				},
+				beforeMount(){
+					console.log("挂载前生命周期 beforeMount  Lifecycle");
+				},
+				mounted(){
+					console.log("挂载完成生命周期 mounted Lifecycle");
+				},
+				created: function () {
+					let that = this
+					this.counter = 1
+					axios.get('http://localhost:3000').then(function(response) {
+						that.htmlText = response.data
+						console.log(that.htmlText);
+					}).catch(function(error) {
+						console.log(error);
+					});
+				},
+				method: {
+					toMain() {
+						axios.get('http://localhost:3000/list').then(function(response) {
+							console.log(response);
+						}).catch(function(error) {
+							console.log(error);
+						});
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
