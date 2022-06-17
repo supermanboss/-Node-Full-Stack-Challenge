@@ -1,6 +1,6 @@
 - how to setup and run： 
 1. Running command in DOS server: node app.js; 
-2. Click index.html in client file 
+2. Click main.html in client file 
 
 - documentation on the solution:
 The front-end uses html, integrates vue, and calls the back-end express interface to add, delete, modify, and check json files.
